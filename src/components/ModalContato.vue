@@ -39,7 +39,7 @@
       <div class="contato-right">
         <img
           class="contato-gif"
-          src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWJvNHhudGhxMnlpbDk1aXhpOHBqeXBzMjl6bm9mMDU0bHBuNmZ3ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qgQUggAC3Pfv687qPC/giphy.gif"
+          src="https://media.giphy.com/media/3oKIPtjElfqwMOTbH2/giphy.gif"
           alt="Entre em contato"
         />
       </div>
