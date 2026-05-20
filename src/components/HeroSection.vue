@@ -22,6 +22,15 @@
         {{ tab.label }}
       </button>
     </nav>
+
+    <a
+      class="cv-download"
+      href="/BRUNO BANDEIRA - FULL STACK.pdf"
+      download="BRUNO BANDEIRA - FULL STACK.pdf"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Baixar CV
+    </a>
   </section>
 </template>
 
@@ -172,8 +181,45 @@ export default {
   border-color: #fff;
 }
 
+.cv-download {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 10px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: background 0.3s, border-color 0.3s, color 0.3s;
+  opacity: 0;
+  animation: fadeUp 1s ease 1.3s forwards;
+}
+
+.cv-download svg {
+  width: 14px;
+  height: 14px;
+}
+
+.cv-download:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: #fff;
+  color: #fff;
+}
+
 @media (max-width: 640px) {
   .hero-content { width: 90vw; }
   .nav-tab { padding: 10px 18px; font-size: 0.78rem; }
+  .cv-download { padding: 9px 20px; font-size: 0.72rem; }
 }
 </style>
