@@ -26,7 +26,7 @@
           </a>
           <a
             class="social-icon"
-            href="https://github.com/DevBrunoBandeira"
+            href="https://github.com/BrunodevBandeira"
             target="_blank"
             rel="noopener noreferrer"
           >
