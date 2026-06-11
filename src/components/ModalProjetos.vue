@@ -112,7 +112,26 @@ export default {
         },
         react: {
           label: 'React Projects',
-          projetos: []
+          projetos: [
+            {
+              nome: 'Bike Shop',
+              descricao: 'Landing page de loja de bicicletas com design moderno, apresentando produtos, serviços e seções de destaque com Vue.js.',
+              tags: ['Vue.js', 'JavaScript', 'CSS', 'Vite'],
+              link: 'https://github.com/BrunodevBandeira/bike-shop'
+            },
+            {
+              nome: 'Café Projeto',
+              descricao: 'Site institucional para cafeteria com páginas de cardápio, sobre e contato, desenvolvido com Vue Router e Bootstrap.',
+              tags: ['Vue.js', 'Vue Router', 'Bootstrap', 'Vite'],
+              link: 'https://github.com/BrunodevBandeira/cafe-projeto'
+            },
+            {
+              nome: 'Cafeteria App',
+              descricao: 'Aplicação completa de cafeteria com catálogo de produtos e interface responsiva construída com Vue.js.',
+              tags: ['Vue.js', 'JavaScript', 'CSS', 'Vite'],
+              link: 'https://github.com/BrunodevBandeira/cafeteria-app'
+            }
+          ]
         },
         springboot: {
           label: 'Spring Boot APIs',
