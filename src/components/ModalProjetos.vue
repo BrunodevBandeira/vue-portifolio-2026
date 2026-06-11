@@ -108,10 +108,6 @@ export default {
       categorias: {
         vuejs: {
           label: 'Vue.js Projects',
-          projetos: []
-        },
-        react: {
-          label: 'React Projects',
           projetos: [
             {
               nome: 'Bike Shop',
@@ -132,6 +128,10 @@ export default {
               link: 'https://github.com/BrunodevBandeira/cafeteria-app'
             }
           ]
+        },
+        react: {
+          label: 'React Projects',
+          projetos: []
         },
         springboot: {
           label: 'Spring Boot APIs',
