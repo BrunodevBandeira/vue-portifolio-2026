@@ -81,8 +81,7 @@ export default {
           label: 'Frontend',
           icon: 'fas fa-palette',
           cards: [
-            { id: 'vuejs',  title: 'Vue.js Projects', icon: 'fab fa-vuejs',  sub: 'Interfaces modernas e responsivas' },
-            { id: 'react',  title: 'React Projects',  icon: 'fab fa-react',  sub: 'Componentes e SPAs com React' }
+            { id: 'vuejs',  title: 'Vue.js Projects', icon: 'fab fa-vuejs',  sub: 'Interfaces modernas e responsivas' }
           ]
         },
         {
@@ -90,8 +89,7 @@ export default {
           label: 'Backend',
           icon: 'fas fa-server',
           cards: [
-            { id: 'springboot', title: 'Spring Boot APIs', icon: 'fab fa-java',     sub: 'REST APIs e microsserviços em Java' },
-            { id: 'banco',      title: 'Banco de Dados',   icon: 'fas fa-database', sub: 'PostgreSQL, Redis e MongoDB' }
+            { id: 'springboot', title: 'Spring Boot APIs', icon: 'fab fa-java',     sub: 'REST APIs e microsserviços em Java' }
           ]
         },
         {
@@ -99,8 +97,8 @@ export default {
           label: 'Full Stack',
           icon: 'fas fa-layer-group',
           cards: [
-            { id: 'fullstack', title: 'Projetos Completos', icon: 'fas fa-rocket', sub: 'Do backend ao frontend integrado' },
-            { id: 'rpa',       title: 'RPA & Automação',    icon: 'fas fa-robot',  sub: 'Automação de processos e integrações' }
+            { id: 'fullstack', title: 'FullStack',      icon: 'fas fa-rocket', sub: 'Do backend ao frontend integrado' },
+            { id: 'rpa',       title: 'Microserviços', icon: 'fas fa-robot',  sub: 'Automação de processos e integrações' }
           ]
         }
       ],
@@ -129,10 +127,6 @@ export default {
             }
           ]
         },
-        react: {
-          label: 'React Projects',
-          projetos: []
-        },
         springboot: {
           label: 'Spring Boot APIs',
           projetos: [
@@ -156,12 +150,8 @@ export default {
             }
           ]
         },
-        banco: {
-          label: 'Banco de Dados',
-          projetos: []
-        },
         fullstack: {
-          label: 'Projetos Completos',
+          label: 'FullStack',
           projetos: [
             {
               nome: 'Projeto Cadastro',
@@ -172,7 +162,7 @@ export default {
           ]
         },
         rpa: {
-          label: 'RPA & Automação',
+          label: 'Microserviços',
           projetos: []
         }
       }
