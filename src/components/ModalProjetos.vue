@@ -109,8 +109,15 @@ export default {
           label: 'Full Stack',
           icon: 'fas fa-layer-group',
           cards: [
-            { id: 'fullstack', title: 'FullStack',      icon: 'fas fa-rocket', sub: 'Do backend ao frontend integrado' },
-            { id: 'rpa',       title: 'Microserviços', icon: 'fas fa-robot',  sub: 'Automação de processos e integrações' }
+            { id: 'fullstack', title: 'FullStack', icon: 'fas fa-rocket', sub: 'Do backend ao frontend integrado' }
+          ]
+        },
+        {
+          id: 'microservicos',
+          label: 'Microsserviços',
+          icon: 'fas fa-robot',
+          cards: [
+            { id: 'rpa', title: 'Microsserviços', icon: 'fas fa-robot', sub: 'Automação de processos e integrações' }
           ]
         }
       ],
@@ -174,7 +181,7 @@ export default {
           ]
         },
         rpa: {
-          label: 'Microserviços',
+          label: 'Microsserviços',
           projetos: [
             {
               nome: 'RabbitMQ',
@@ -194,7 +201,7 @@ export default {
     },
     sectionColumns() {
       const left = this.sections.filter(s => s.id === 'frontend' || s.id === 'backend')
-      const right = this.sections.filter(s => s.id === 'fullstack')
+      const right = this.sections.filter(s => s.id === 'fullstack' || s.id === 'microservicos')
       return [left, right].filter(col => col.length > 0)
     }
   },
