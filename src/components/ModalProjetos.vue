@@ -9,24 +9,36 @@
 
     <!-- ── GRID DE CARDS ── -->
     <template v-if="view === 'grid'">
-      <div v-for="section in sections" :key="section.id" class="projects-section">
-        <h3>
-          <i :class="section.icon" class="section-icon"></i>
-          {{ section.label }}
-        </h3>
-        <div class="projects-grid">
-          <button
-            v-for="card in section.cards"
-            :key="card.id"
-            class="project-card"
-            @click="abrirCategoria(card.id)"
+      <div class="projects-columns">
+        <div
+          v-for="column in sectionColumns"
+          :key="column[0].id"
+          class="projects-column"
+        >
+          <div
+            v-for="section in column"
+            :key="section.id"
+            class="projects-section"
           >
-            <div class="project-card-title">
-              <i :class="card.icon"></i> {{ card.title }}
+            <h3>
+              <i :class="section.icon" class="section-icon"></i>
+              {{ section.label }}
+            </h3>
+            <div class="projects-grid">
+              <button
+                v-for="card in section.cards"
+                :key="card.id"
+                class="project-card"
+                @click="abrirCategoria(card.id)"
+              >
+                <div class="project-card-title">
+                  <i :class="card.icon"></i> {{ card.title }}
+                </div>
+                <div class="project-card-sub">{{ card.sub }}</div>
+                <i class="fas fa-arrow-right project-card-arrow"></i>
+              </button>
             </div>
-            <div class="project-card-sub">{{ card.sub }}</div>
-            <i class="fas fa-arrow-right project-card-arrow"></i>
-          </button>
+          </div>
         </div>
       </div>
     </template>
@@ -163,7 +175,14 @@ export default {
         },
         rpa: {
           label: 'Microserviços',
-          projetos: []
+          projetos: [
+            {
+              nome: 'RabbitMQ',
+              descricao: 'Microsserviços em Spring Boot que se comunicam via RabbitMQ, demonstrando os 5 tipos de roteamento (default, direct, fanout, topic e headers) no envio assíncrono de e-mails.',
+              tags: ['Java', 'Spring Boot', 'RabbitMQ', 'Microsserviços', 'Mensageria'],
+              link: 'https://github.com/BrunodevBandeira/RabbitMQ'
+            }
+          ]
         }
       }
     }
@@ -172,6 +191,11 @@ export default {
   computed: {
     categoriaAtual() {
       return this.categorias[this.categoriaId] || { label: '', projetos: [] }
+    },
+    sectionColumns() {
+      const left = this.sections.filter(s => s.id === 'frontend' || s.id === 'backend')
+      const right = this.sections.filter(s => s.id === 'fullstack')
+      return [left, right].filter(col => col.length > 0)
     }
   },
 
@@ -223,6 +247,18 @@ export default {
 }
 
 /* ── GRID DE CARDS ── */
+.projects-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.projects-column {
+  display: flex;
+  flex-direction: column;
+}
+
 .projects-section h3 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.1rem;
@@ -240,7 +276,7 @@ export default {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 12px;
 }
 
@@ -408,6 +444,7 @@ export default {
 }
 
 @media (max-width: 640px) {
+  .projects-columns { grid-template-columns: 1fr; gap: 0; }
   .projects-grid { grid-template-columns: 1fr; }
   .proj-item { grid-template-columns: 1fr; }
   .proj-item::before { display: none; }
