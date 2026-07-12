@@ -54,14 +54,11 @@
 
       <!-- Com projetos -->
       <div v-else class="proj-list">
-        <a
+        <div
           v-for="(proj, index) in categoriaAtual.projetos"
           :key="proj.nome"
           class="proj-item"
           :class="{ 'last': index === categoriaAtual.projetos.length - 1 }"
-          :href="proj.link"
-          target="_blank"
-          rel="noopener noreferrer"
         >
           <div class="proj-left">
             <span class="proj-nome">{{ proj.nome }}</span>
@@ -71,9 +68,27 @@
             <div class="tag-list">
               <span v-for="tag in proj.tags" :key="tag" class="tag">{{ tag }}</span>
             </div>
+            <div class="proj-actions">
+              <a
+                class="proj-btn"
+                :href="proj.link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-github"></i> Ver código
+              </a>
+              <a
+                v-if="proj.demo"
+                class="proj-btn proj-btn-demo"
+                :href="proj.demo"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fas fa-arrow-up-right-from-square"></i> Ver site
+              </a>
+            </div>
           </div>
-          <i class="fas fa-arrow-right proj-arrow"></i>
-        </a>
+        </div>
       </div>
     </template>
   </div>
@@ -130,19 +145,22 @@ export default {
               nome: 'Bike Shop',
               descricao: 'Landing page de loja de bicicletas com design moderno, apresentando produtos, serviços e seções de destaque com Vue.js.',
               tags: ['Vue.js', 'JavaScript', 'CSS', 'Vite'],
-              link: 'https://github.com/BrunodevBandeira/bike-shop'
+              link: 'https://github.com/BrunodevBandeira/bike-shop',
+              demo: 'https://bikeshopp.netlify.app/'
             },
             {
               nome: 'Café Projeto',
               descricao: 'Site institucional para cafeteria com páginas de cardápio, sobre e contato, desenvolvido com Vue Router e Bootstrap.',
               tags: ['Vue.js', 'Vue Router', 'Bootstrap', 'Vite'],
-              link: 'https://github.com/BrunodevBandeira/cafe-projeto'
+              link: 'https://github.com/BrunodevBandeira/cafe-projeto',
+              demo: 'https://cafeprojeto.netlify.app/'
             },
             {
               nome: 'Cafeteria App',
               descricao: 'Aplicação completa de cafeteria com catálogo de produtos e interface responsiva construída com Vue.js.',
               tags: ['Vue.js', 'JavaScript', 'CSS', 'Vite'],
-              link: 'https://github.com/BrunodevBandeira/cafeteria-app'
+              link: 'https://github.com/BrunodevBandeira/cafeteria-app',
+              demo: 'https://cafeteriashopp.netlify.app/'
             }
           ]
         },
@@ -353,7 +371,7 @@ export default {
 
 .proj-item {
   display: grid;
-  grid-template-columns: 180px 1fr 24px;
+  grid-template-columns: 180px 1fr;
   gap: 24px;
   padding: 24px 0;
   border-bottom: 1px solid rgba(255,255,255,0.07);
@@ -374,7 +392,6 @@ export default {
 }
 .proj-item.last { border-bottom: none; }
 .proj-item:hover .proj-nome { color: #e8c98e; }
-.proj-item:hover .proj-arrow { color: #c9a96e; transform: translateX(4px); }
 
 .proj-left {
   display: flex;
@@ -416,11 +433,42 @@ export default {
   letter-spacing: 0.05em;
 }
 
-.proj-arrow {
-  align-self: center;
-  color: rgba(255,255,255,0.2);
-  font-size: 0.85rem;
-  transition: color 0.2s, transform 0.2s;
+.proj-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.proj-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s, background 0.2s, transform 0.2s;
+}
+.proj-btn i { font-size: 0.85rem; }
+.proj-btn:hover {
+  border-color: #c9a96e;
+  color: #e8c98e;
+  transform: translateY(-2px);
+}
+
+.proj-btn-demo {
+  border-color: rgba(201,169,110,0.4);
+  color: #c9a96e;
+  background: rgba(201,169,110,0.08);
+}
+.proj-btn-demo:hover {
+  border-color: #c9a96e;
+  background: rgba(201,169,110,0.15);
+  color: #e8c98e;
 }
 
 /* ── EMPTY STATE ── */
@@ -455,6 +503,5 @@ export default {
   .projects-grid { grid-template-columns: 1fr; }
   .proj-item { grid-template-columns: 1fr; }
   .proj-item::before { display: none; }
-  .proj-arrow { display: none; }
 }
 </style>
